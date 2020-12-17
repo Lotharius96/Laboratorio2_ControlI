@@ -1,0 +1,21 @@
+# Lab2_control
+# 2020-12-14 05:01:23Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "giro1(0)" iocell 1 6
+set_io "giro2(0)" iocell 1 7
+set_io "spwm(0)" iocell 2 0
+set_location "\PWM:PWMUDB:status_2\" 0 4 0 0
+set_location "\PWM:PWMUDB:genblk1:ctrlreg\" 0 4 6
+set_location "\PWM:PWMUDB:genblk8:stsreg\" 0 4 4
+set_location "\PWM:PWMUDB:sP8:pwmdp:u0\" 0 4 2
+set_location "\PWM:PWMUDB:runmode_enable\" 0 4 0 1
+set_location "\PWM:PWMUDB:prevCompare1\" 0 4 0 3
+set_location "\PWM:PWMUDB:status_0\" 0 4 1 0
+set_location "Net_216" 0 4 0 2

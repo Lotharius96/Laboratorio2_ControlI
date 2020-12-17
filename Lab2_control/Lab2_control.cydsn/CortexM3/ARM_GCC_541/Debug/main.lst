@@ -1,0 +1,1011 @@
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.setPwm,"ax",%progbits
+  20              		.align	2
+  21              		.global	setPwm
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	setPwm, %function
+  25              	setPwm:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** const uint8 sinewave[]={
+  15:main.c        ****  78,   84,   90,   96,  102,  107,  112,  117,  120,  123,  126,  127,  128,  128,  127,  126,
+  16:main.c        ****  123,  120,  117,  112,  107,  102,   96,   90,   84,   78,   72,   66,   60,   54,   49,   44,
+  17:main.c        ****  39,   36,   33,   30,   29,   28,   28,   29,   30,   33,   36,   39,   44,   49,   54,   60,
+  18:main.c        ****  66,   72,   78
+  19:main.c        **** };
+  20:main.c        **** uint8 index_t=0;
+  21:main.c        **** void setPwm(int index){
+  28              		.loc 1 21 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 2
+
+
+  37              	.LVL1:
+  22:main.c        ****      uint8 value=sinewave[index];
+  23:main.c        ****      PWM_WriteCompare(value); 
+  38              		.loc 1 23 0
+  39 0002 054B     		ldr	r3, .L3
+  40 0004 185C     		ldrb	r0, [r3, r0]	@ zero_extendqisi2
+  41              	.LVL2:
+  42 0006 FFF7FEFF 		bl	PWM_WriteCompare
+  43              	.LVL3:
+  24:main.c        ****      giro1_Write(1);
+  44              		.loc 1 24 0
+  45 000a 0120     		movs	r0, #1
+  46 000c FFF7FEFF 		bl	giro1_Write
+  47              	.LVL4:
+  25:main.c        ****      giro2_Write(0);
+  48              		.loc 1 25 0
+  49 0010 0020     		movs	r0, #0
+  50 0012 FFF7FEFF 		bl	giro2_Write
+  51              	.LVL5:
+  52 0016 08BD     		pop	{r3, pc}
+  53              	.L4:
+  54              		.align	2
+  55              	.L3:
+  56 0018 00000000 		.word	.LANCHOR0
+  57              		.cfi_endproc
+  58              	.LFE63:
+  59              		.size	setPwm, .-setPwm
+  60              		.section	.text.main,"ax",%progbits
+  61              		.align	2
+  62              		.global	main
+  63              		.thumb
+  64              		.thumb_func
+  65              		.type	main, %function
+  66              	main:
+  67              	.LFB64:
+  26:main.c        **** 
+  27:main.c        **** }
+  28:main.c        **** 
+  29:main.c        **** int main(void)
+  30:main.c        **** {
+  68              		.loc 1 30 0
+  69              		.cfi_startproc
+  70              		@ Volatile: function does not return.
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73 0000 08B5     		push	{r3, lr}
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 3, -8
+  76              		.cfi_offset 14, -4
+  31:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  77              		.loc 1 31 0
+  78              		.syntax unified
+  79              	@ 31 "main.c" 1
+  80 0002 62B6     		CPSIE   i
+  81              	@ 0 "" 2
+  32:main.c        ****     
+  33:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 3
+
+
+  34:main.c        ****     PWM_Start();
+  82              		.loc 1 34 0
+  83              		.thumb
+  84              		.syntax unified
+  85 0004 FFF7FEFF 		bl	PWM_Start
+  86              	.LVL6:
+  87              	.L6:
+  35:main.c        ****     for(;;)
+  36:main.c        ****     {
+  37:main.c        ****          setPwm(index_t);
+  88              		.loc 1 37 0
+  89 0008 084C     		ldr	r4, .L10
+  90 000a 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  91 000c FFF7FEFF 		bl	setPwm
+  92              	.LVL7:
+  38:main.c        ****          CyDelay(164);
+  93              		.loc 1 38 0
+  94 0010 A420     		movs	r0, #164
+  95 0012 FFF7FEFF 		bl	CyDelay
+  96              	.LVL8:
+  39:main.c        ****         if(index_t>=51){
+  97              		.loc 1 39 0
+  98 0016 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  99 0018 322B     		cmp	r3, #50
+ 100 001a 02D9     		bls	.L7
+  40:main.c        ****            index_t=0;
+ 101              		.loc 1 40 0
+ 102 001c 0022     		movs	r2, #0
+ 103 001e 2270     		strb	r2, [r4]
+ 104 0020 F2E7     		b	.L6
+ 105              	.L7:
+  41:main.c        ****         }else{
+  42:main.c        ****            index_t++;
+ 106              		.loc 1 42 0
+ 107 0022 0133     		adds	r3, r3, #1
+ 108 0024 014A     		ldr	r2, .L10
+ 109 0026 1370     		strb	r3, [r2]
+ 110 0028 EEE7     		b	.L6
+ 111              	.L11:
+ 112 002a 00BF     		.align	2
+ 113              	.L10:
+ 114 002c 00000000 		.word	.LANCHOR1
+ 115              		.cfi_endproc
+ 116              	.LFE64:
+ 117              		.size	main, .-main
+ 118              		.global	index_t
+ 119              		.global	sinewave
+ 120              		.section	.rodata
+ 121              		.align	2
+ 122              		.set	.LANCHOR0,. + 0
+ 123              		.type	sinewave, %object
+ 124              		.size	sinewave, 51
+ 125              	sinewave:
+ 126 0000 4E       		.byte	78
+ 127 0001 54       		.byte	84
+ 128 0002 5A       		.byte	90
+ 129 0003 60       		.byte	96
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 4
+
+
+ 130 0004 66       		.byte	102
+ 131 0005 6B       		.byte	107
+ 132 0006 70       		.byte	112
+ 133 0007 75       		.byte	117
+ 134 0008 78       		.byte	120
+ 135 0009 7B       		.byte	123
+ 136 000a 7E       		.byte	126
+ 137 000b 7F       		.byte	127
+ 138 000c 80       		.byte	-128
+ 139 000d 80       		.byte	-128
+ 140 000e 7F       		.byte	127
+ 141 000f 7E       		.byte	126
+ 142 0010 7B       		.byte	123
+ 143 0011 78       		.byte	120
+ 144 0012 75       		.byte	117
+ 145 0013 70       		.byte	112
+ 146 0014 6B       		.byte	107
+ 147 0015 66       		.byte	102
+ 148 0016 60       		.byte	96
+ 149 0017 5A       		.byte	90
+ 150 0018 54       		.byte	84
+ 151 0019 4E       		.byte	78
+ 152 001a 48       		.byte	72
+ 153 001b 42       		.byte	66
+ 154 001c 3C       		.byte	60
+ 155 001d 36       		.byte	54
+ 156 001e 31       		.byte	49
+ 157 001f 2C       		.byte	44
+ 158 0020 27       		.byte	39
+ 159 0021 24       		.byte	36
+ 160 0022 21       		.byte	33
+ 161 0023 1E       		.byte	30
+ 162 0024 1D       		.byte	29
+ 163 0025 1C       		.byte	28
+ 164 0026 1C       		.byte	28
+ 165 0027 1D       		.byte	29
+ 166 0028 1E       		.byte	30
+ 167 0029 21       		.byte	33
+ 168 002a 24       		.byte	36
+ 169 002b 27       		.byte	39
+ 170 002c 2C       		.byte	44
+ 171 002d 31       		.byte	49
+ 172 002e 36       		.byte	54
+ 173 002f 3C       		.byte	60
+ 174 0030 42       		.byte	66
+ 175 0031 48       		.byte	72
+ 176 0032 4E       		.byte	78
+ 177              		.bss
+ 178              		.set	.LANCHOR1,. + 0
+ 179              		.type	index_t, %object
+ 180              		.size	index_t, 1
+ 181              	index_t:
+ 182 0000 00       		.space	1
+ 183              		.text
+ 184              	.Letext0:
+ 185              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 186              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 5
+
+
+ 187              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 188              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 189              		.file 6 "Generated_Source\\PSoC5/PWM.h"
+ 190              		.file 7 "Generated_Source\\PSoC5/giro1.h"
+ 191              		.file 8 "Generated_Source\\PSoC5/giro2.h"
+ 192              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 193              		.section	.debug_info,"",%progbits
+ 194              	.Ldebug_info0:
+ 195 0000 E0010000 		.4byte	0x1e0
+ 196 0004 0400     		.2byte	0x4
+ 197 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 198 000a 04       		.byte	0x4
+ 199 000b 01       		.uleb128 0x1
+ 200 000c 31000000 		.4byte	.LASF25
+ 201 0010 0C       		.byte	0xc
+ 202 0011 CA010000 		.4byte	.LASF26
+ 203 0015 2F010000 		.4byte	.LASF27
+ 204 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 205 001d 00000000 		.4byte	0
+ 206 0021 00000000 		.4byte	.Ldebug_line0
+ 207 0025 02       		.uleb128 0x2
+ 208 0026 01       		.byte	0x1
+ 209 0027 06       		.byte	0x6
+ 210 0028 05020000 		.4byte	.LASF0
+ 211 002c 02       		.uleb128 0x2
+ 212 002d 01       		.byte	0x1
+ 213 002e 08       		.byte	0x8
+ 214 002f 23000000 		.4byte	.LASF1
+ 215 0033 02       		.uleb128 0x2
+ 216 0034 02       		.byte	0x2
+ 217 0035 05       		.byte	0x5
+ 218 0036 DC010000 		.4byte	.LASF2
+ 219 003a 02       		.uleb128 0x2
+ 220 003b 02       		.byte	0x2
+ 221 003c 07       		.byte	0x7
+ 222 003d D1000000 		.4byte	.LASF3
+ 223 0041 03       		.uleb128 0x3
+ 224 0042 06000000 		.4byte	.LASF9
+ 225 0046 02       		.byte	0x2
+ 226 0047 3F       		.byte	0x3f
+ 227 0048 4C000000 		.4byte	0x4c
+ 228 004c 02       		.uleb128 0x2
+ 229 004d 04       		.byte	0x4
+ 230 004e 05       		.byte	0x5
+ 231 004f F0010000 		.4byte	.LASF4
+ 232 0053 02       		.uleb128 0x2
+ 233 0054 04       		.byte	0x4
+ 234 0055 07       		.byte	0x7
+ 235 0056 BF000000 		.4byte	.LASF5
+ 236 005a 02       		.uleb128 0x2
+ 237 005b 08       		.byte	0x8
+ 238 005c 05       		.byte	0x5
+ 239 005d BC010000 		.4byte	.LASF6
+ 240 0061 02       		.uleb128 0x2
+ 241 0062 08       		.byte	0x8
+ 242 0063 07       		.byte	0x7
+ 243 0064 8C010000 		.4byte	.LASF7
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 6
+
+
+ 244 0068 04       		.uleb128 0x4
+ 245 0069 04       		.byte	0x4
+ 246 006a 05       		.byte	0x5
+ 247 006b 696E7400 		.ascii	"int\000"
+ 248 006f 02       		.uleb128 0x2
+ 249 0070 04       		.byte	0x4
+ 250 0071 07       		.byte	0x7
+ 251 0072 7F010000 		.4byte	.LASF8
+ 252 0076 03       		.uleb128 0x3
+ 253 0077 AB010000 		.4byte	.LASF10
+ 254 007b 03       		.byte	0x3
+ 255 007c 2C       		.byte	0x2c
+ 256 007d 41000000 		.4byte	0x41
+ 257 0081 05       		.uleb128 0x5
+ 258 0082 1D000000 		.4byte	.LASF11
+ 259 0086 04       		.byte	0x4
+ 260 0087 E801     		.2byte	0x1e8
+ 261 0089 2C000000 		.4byte	0x2c
+ 262 008d 02       		.uleb128 0x2
+ 263 008e 04       		.byte	0x4
+ 264 008f 04       		.byte	0x4
+ 265 0090 17000000 		.4byte	.LASF12
+ 266 0094 02       		.uleb128 0x2
+ 267 0095 08       		.byte	0x8
+ 268 0096 04       		.byte	0x4
+ 269 0097 06010000 		.4byte	.LASF13
+ 270 009b 02       		.uleb128 0x2
+ 271 009c 01       		.byte	0x1
+ 272 009d 08       		.byte	0x8
+ 273 009e D1010000 		.4byte	.LASF14
+ 274 00a2 02       		.uleb128 0x2
+ 275 00a3 08       		.byte	0x8
+ 276 00a4 04       		.byte	0x4
+ 277 00a5 F9010000 		.4byte	.LASF15
+ 278 00a9 02       		.uleb128 0x2
+ 279 00aa 04       		.byte	0x4
+ 280 00ab 07       		.byte	0x7
+ 281 00ac B3010000 		.4byte	.LASF16
+ 282 00b0 06       		.uleb128 0x6
+ 283 00b1 10000000 		.4byte	.LASF28
+ 284 00b5 01       		.byte	0x1
+ 285 00b6 15       		.byte	0x15
+ 286 00b7 00000000 		.4byte	.LFB63
+ 287 00bb 1C000000 		.4byte	.LFE63-.LFB63
+ 288 00bf 01       		.uleb128 0x1
+ 289 00c0 9C       		.byte	0x9c
+ 290 00c1 23010000 		.4byte	0x123
+ 291 00c5 07       		.uleb128 0x7
+ 292 00c6 D6010000 		.4byte	.LASF29
+ 293 00ca 01       		.byte	0x1
+ 294 00cb 15       		.byte	0x15
+ 295 00cc 68000000 		.4byte	0x68
+ 296 00d0 00000000 		.4byte	.LLST0
+ 297 00d4 08       		.uleb128 0x8
+ 298 00d5 00000000 		.4byte	.LASF30
+ 299 00d9 01       		.byte	0x1
+ 300 00da 16       		.byte	0x16
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 7
+
+
+ 301 00db 81000000 		.4byte	0x81
+ 302 00df 21000000 		.4byte	.LLST1
+ 303 00e3 09       		.uleb128 0x9
+ 304 00e4 0A000000 		.4byte	.LVL3
+ 305 00e8 AC010000 		.4byte	0x1ac
+ 306 00ec 00010000 		.4byte	0x100
+ 307 00f0 0A       		.uleb128 0xa
+ 308 00f1 01       		.uleb128 0x1
+ 309 00f2 50       		.byte	0x50
+ 310 00f3 0B       		.uleb128 0xb
+ 311 00f4 F3       		.byte	0xf3
+ 312 00f5 01       		.uleb128 0x1
+ 313 00f6 50       		.byte	0x50
+ 314 00f7 03       		.byte	0x3
+ 315 00f8 00000000 		.4byte	.LANCHOR0
+ 316 00fc 22       		.byte	0x22
+ 317 00fd 94       		.byte	0x94
+ 318 00fe 01       		.byte	0x1
+ 319 00ff 00       		.byte	0
+ 320 0100 09       		.uleb128 0x9
+ 321 0101 10000000 		.4byte	.LVL4
+ 322 0105 B7010000 		.4byte	0x1b7
+ 323 0109 13010000 		.4byte	0x113
+ 324 010d 0A       		.uleb128 0xa
+ 325 010e 01       		.uleb128 0x1
+ 326 010f 50       		.byte	0x50
+ 327 0110 01       		.uleb128 0x1
+ 328 0111 31       		.byte	0x31
+ 329 0112 00       		.byte	0
+ 330 0113 0B       		.uleb128 0xb
+ 331 0114 16000000 		.4byte	.LVL5
+ 332 0118 C2010000 		.4byte	0x1c2
+ 333 011c 0A       		.uleb128 0xa
+ 334 011d 01       		.uleb128 0x1
+ 335 011e 50       		.byte	0x50
+ 336 011f 01       		.uleb128 0x1
+ 337 0120 30       		.byte	0x30
+ 338 0121 00       		.byte	0
+ 339 0122 00       		.byte	0
+ 340 0123 0C       		.uleb128 0xc
+ 341 0124 1E010000 		.4byte	.LASF31
+ 342 0128 01       		.byte	0x1
+ 343 0129 1D       		.byte	0x1d
+ 344 012a 68000000 		.4byte	0x68
+ 345 012e 00000000 		.4byte	.LFB64
+ 346 0132 30000000 		.4byte	.LFE64-.LFB64
+ 347 0136 01       		.uleb128 0x1
+ 348 0137 9C       		.byte	0x9c
+ 349 0138 5F010000 		.4byte	0x15f
+ 350 013c 0D       		.uleb128 0xd
+ 351 013d 08000000 		.4byte	.LVL6
+ 352 0141 CD010000 		.4byte	0x1cd
+ 353 0145 0D       		.uleb128 0xd
+ 354 0146 10000000 		.4byte	.LVL7
+ 355 014a B0000000 		.4byte	0xb0
+ 356 014e 0B       		.uleb128 0xb
+ 357 014f 16000000 		.4byte	.LVL8
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 8
+
+
+ 358 0153 D8010000 		.4byte	0x1d8
+ 359 0157 0A       		.uleb128 0xa
+ 360 0158 01       		.uleb128 0x1
+ 361 0159 50       		.byte	0x50
+ 362 015a 02       		.uleb128 0x2
+ 363 015b 08       		.byte	0x8
+ 364 015c A4       		.byte	0xa4
+ 365 015d 00       		.byte	0
+ 366 015e 00       		.byte	0
+ 367 015f 0E       		.uleb128 0xe
+ 368 0160 F0000000 		.4byte	.LASF17
+ 369 0164 05       		.byte	0x5
+ 370 0165 1207     		.2byte	0x712
+ 371 0167 6B010000 		.4byte	0x16b
+ 372 016b 0F       		.uleb128 0xf
+ 373 016c 76000000 		.4byte	0x76
+ 374 0170 10       		.uleb128 0x10
+ 375 0171 80010000 		.4byte	0x180
+ 376 0175 80010000 		.4byte	0x180
+ 377 0179 11       		.uleb128 0x11
+ 378 017a A9000000 		.4byte	0xa9
+ 379 017e 32       		.byte	0x32
+ 380 017f 00       		.byte	0
+ 381 0180 12       		.uleb128 0x12
+ 382 0181 81000000 		.4byte	0x81
+ 383 0185 13       		.uleb128 0x13
+ 384 0186 FD000000 		.4byte	.LASF18
+ 385 018a 01       		.byte	0x1
+ 386 018b 0E       		.byte	0xe
+ 387 018c 96010000 		.4byte	0x196
+ 388 0190 05       		.uleb128 0x5
+ 389 0191 03       		.byte	0x3
+ 390 0192 00000000 		.4byte	sinewave
+ 391 0196 12       		.uleb128 0x12
+ 392 0197 70010000 		.4byte	0x170
+ 393 019b 13       		.uleb128 0x13
+ 394 019c A3010000 		.4byte	.LASF19
+ 395 01a0 01       		.byte	0x1
+ 396 01a1 14       		.byte	0x14
+ 397 01a2 81000000 		.4byte	0x81
+ 398 01a6 05       		.uleb128 0x5
+ 399 01a7 03       		.byte	0x3
+ 400 01a8 00000000 		.4byte	index_t
+ 401 01ac 14       		.uleb128 0x14
+ 402 01ad 0D010000 		.4byte	.LASF20
+ 403 01b1 0D010000 		.4byte	.LASF20
+ 404 01b5 06       		.byte	0x6
+ 405 01b6 C3       		.byte	0xc3
+ 406 01b7 14       		.uleb128 0x14
+ 407 01b8 E4000000 		.4byte	.LASF21
+ 408 01bc E4000000 		.4byte	.LASF21
+ 409 01c0 07       		.byte	0x7
+ 410 01c1 26       		.byte	0x26
+ 411 01c2 14       		.uleb128 0x14
+ 412 01c3 23010000 		.4byte	.LASF22
+ 413 01c7 23010000 		.4byte	.LASF22
+ 414 01cb 08       		.byte	0x8
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 9
+
+
+ 415 01cc 26       		.byte	0x26
+ 416 01cd 14       		.uleb128 0x14
+ 417 01ce E6010000 		.4byte	.LASF23
+ 418 01d2 E6010000 		.4byte	.LASF23
+ 419 01d6 06       		.byte	0x6
+ 420 01d7 92       		.byte	0x92
+ 421 01d8 14       		.uleb128 0x14
+ 422 01d9 11020000 		.4byte	.LASF24
+ 423 01dd 11020000 		.4byte	.LASF24
+ 424 01e1 09       		.byte	0x9
+ 425 01e2 76       		.byte	0x76
+ 426 01e3 00       		.byte	0
+ 427              		.section	.debug_abbrev,"",%progbits
+ 428              	.Ldebug_abbrev0:
+ 429 0000 01       		.uleb128 0x1
+ 430 0001 11       		.uleb128 0x11
+ 431 0002 01       		.byte	0x1
+ 432 0003 25       		.uleb128 0x25
+ 433 0004 0E       		.uleb128 0xe
+ 434 0005 13       		.uleb128 0x13
+ 435 0006 0B       		.uleb128 0xb
+ 436 0007 03       		.uleb128 0x3
+ 437 0008 0E       		.uleb128 0xe
+ 438 0009 1B       		.uleb128 0x1b
+ 439 000a 0E       		.uleb128 0xe
+ 440 000b 55       		.uleb128 0x55
+ 441 000c 17       		.uleb128 0x17
+ 442 000d 11       		.uleb128 0x11
+ 443 000e 01       		.uleb128 0x1
+ 444 000f 10       		.uleb128 0x10
+ 445 0010 17       		.uleb128 0x17
+ 446 0011 00       		.byte	0
+ 447 0012 00       		.byte	0
+ 448 0013 02       		.uleb128 0x2
+ 449 0014 24       		.uleb128 0x24
+ 450 0015 00       		.byte	0
+ 451 0016 0B       		.uleb128 0xb
+ 452 0017 0B       		.uleb128 0xb
+ 453 0018 3E       		.uleb128 0x3e
+ 454 0019 0B       		.uleb128 0xb
+ 455 001a 03       		.uleb128 0x3
+ 456 001b 0E       		.uleb128 0xe
+ 457 001c 00       		.byte	0
+ 458 001d 00       		.byte	0
+ 459 001e 03       		.uleb128 0x3
+ 460 001f 16       		.uleb128 0x16
+ 461 0020 00       		.byte	0
+ 462 0021 03       		.uleb128 0x3
+ 463 0022 0E       		.uleb128 0xe
+ 464 0023 3A       		.uleb128 0x3a
+ 465 0024 0B       		.uleb128 0xb
+ 466 0025 3B       		.uleb128 0x3b
+ 467 0026 0B       		.uleb128 0xb
+ 468 0027 49       		.uleb128 0x49
+ 469 0028 13       		.uleb128 0x13
+ 470 0029 00       		.byte	0
+ 471 002a 00       		.byte	0
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 10
+
+
+ 472 002b 04       		.uleb128 0x4
+ 473 002c 24       		.uleb128 0x24
+ 474 002d 00       		.byte	0
+ 475 002e 0B       		.uleb128 0xb
+ 476 002f 0B       		.uleb128 0xb
+ 477 0030 3E       		.uleb128 0x3e
+ 478 0031 0B       		.uleb128 0xb
+ 479 0032 03       		.uleb128 0x3
+ 480 0033 08       		.uleb128 0x8
+ 481 0034 00       		.byte	0
+ 482 0035 00       		.byte	0
+ 483 0036 05       		.uleb128 0x5
+ 484 0037 16       		.uleb128 0x16
+ 485 0038 00       		.byte	0
+ 486 0039 03       		.uleb128 0x3
+ 487 003a 0E       		.uleb128 0xe
+ 488 003b 3A       		.uleb128 0x3a
+ 489 003c 0B       		.uleb128 0xb
+ 490 003d 3B       		.uleb128 0x3b
+ 491 003e 05       		.uleb128 0x5
+ 492 003f 49       		.uleb128 0x49
+ 493 0040 13       		.uleb128 0x13
+ 494 0041 00       		.byte	0
+ 495 0042 00       		.byte	0
+ 496 0043 06       		.uleb128 0x6
+ 497 0044 2E       		.uleb128 0x2e
+ 498 0045 01       		.byte	0x1
+ 499 0046 3F       		.uleb128 0x3f
+ 500 0047 19       		.uleb128 0x19
+ 501 0048 03       		.uleb128 0x3
+ 502 0049 0E       		.uleb128 0xe
+ 503 004a 3A       		.uleb128 0x3a
+ 504 004b 0B       		.uleb128 0xb
+ 505 004c 3B       		.uleb128 0x3b
+ 506 004d 0B       		.uleb128 0xb
+ 507 004e 27       		.uleb128 0x27
+ 508 004f 19       		.uleb128 0x19
+ 509 0050 11       		.uleb128 0x11
+ 510 0051 01       		.uleb128 0x1
+ 511 0052 12       		.uleb128 0x12
+ 512 0053 06       		.uleb128 0x6
+ 513 0054 40       		.uleb128 0x40
+ 514 0055 18       		.uleb128 0x18
+ 515 0056 9742     		.uleb128 0x2117
+ 516 0058 19       		.uleb128 0x19
+ 517 0059 01       		.uleb128 0x1
+ 518 005a 13       		.uleb128 0x13
+ 519 005b 00       		.byte	0
+ 520 005c 00       		.byte	0
+ 521 005d 07       		.uleb128 0x7
+ 522 005e 05       		.uleb128 0x5
+ 523 005f 00       		.byte	0
+ 524 0060 03       		.uleb128 0x3
+ 525 0061 0E       		.uleb128 0xe
+ 526 0062 3A       		.uleb128 0x3a
+ 527 0063 0B       		.uleb128 0xb
+ 528 0064 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 11
+
+
+ 529 0065 0B       		.uleb128 0xb
+ 530 0066 49       		.uleb128 0x49
+ 531 0067 13       		.uleb128 0x13
+ 532 0068 02       		.uleb128 0x2
+ 533 0069 17       		.uleb128 0x17
+ 534 006a 00       		.byte	0
+ 535 006b 00       		.byte	0
+ 536 006c 08       		.uleb128 0x8
+ 537 006d 34       		.uleb128 0x34
+ 538 006e 00       		.byte	0
+ 539 006f 03       		.uleb128 0x3
+ 540 0070 0E       		.uleb128 0xe
+ 541 0071 3A       		.uleb128 0x3a
+ 542 0072 0B       		.uleb128 0xb
+ 543 0073 3B       		.uleb128 0x3b
+ 544 0074 0B       		.uleb128 0xb
+ 545 0075 49       		.uleb128 0x49
+ 546 0076 13       		.uleb128 0x13
+ 547 0077 02       		.uleb128 0x2
+ 548 0078 17       		.uleb128 0x17
+ 549 0079 00       		.byte	0
+ 550 007a 00       		.byte	0
+ 551 007b 09       		.uleb128 0x9
+ 552 007c 898201   		.uleb128 0x4109
+ 553 007f 01       		.byte	0x1
+ 554 0080 11       		.uleb128 0x11
+ 555 0081 01       		.uleb128 0x1
+ 556 0082 31       		.uleb128 0x31
+ 557 0083 13       		.uleb128 0x13
+ 558 0084 01       		.uleb128 0x1
+ 559 0085 13       		.uleb128 0x13
+ 560 0086 00       		.byte	0
+ 561 0087 00       		.byte	0
+ 562 0088 0A       		.uleb128 0xa
+ 563 0089 8A8201   		.uleb128 0x410a
+ 564 008c 00       		.byte	0
+ 565 008d 02       		.uleb128 0x2
+ 566 008e 18       		.uleb128 0x18
+ 567 008f 9142     		.uleb128 0x2111
+ 568 0091 18       		.uleb128 0x18
+ 569 0092 00       		.byte	0
+ 570 0093 00       		.byte	0
+ 571 0094 0B       		.uleb128 0xb
+ 572 0095 898201   		.uleb128 0x4109
+ 573 0098 01       		.byte	0x1
+ 574 0099 11       		.uleb128 0x11
+ 575 009a 01       		.uleb128 0x1
+ 576 009b 31       		.uleb128 0x31
+ 577 009c 13       		.uleb128 0x13
+ 578 009d 00       		.byte	0
+ 579 009e 00       		.byte	0
+ 580 009f 0C       		.uleb128 0xc
+ 581 00a0 2E       		.uleb128 0x2e
+ 582 00a1 01       		.byte	0x1
+ 583 00a2 3F       		.uleb128 0x3f
+ 584 00a3 19       		.uleb128 0x19
+ 585 00a4 03       		.uleb128 0x3
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 12
+
+
+ 586 00a5 0E       		.uleb128 0xe
+ 587 00a6 3A       		.uleb128 0x3a
+ 588 00a7 0B       		.uleb128 0xb
+ 589 00a8 3B       		.uleb128 0x3b
+ 590 00a9 0B       		.uleb128 0xb
+ 591 00aa 27       		.uleb128 0x27
+ 592 00ab 19       		.uleb128 0x19
+ 593 00ac 49       		.uleb128 0x49
+ 594 00ad 13       		.uleb128 0x13
+ 595 00ae 8701     		.uleb128 0x87
+ 596 00b0 19       		.uleb128 0x19
+ 597 00b1 11       		.uleb128 0x11
+ 598 00b2 01       		.uleb128 0x1
+ 599 00b3 12       		.uleb128 0x12
+ 600 00b4 06       		.uleb128 0x6
+ 601 00b5 40       		.uleb128 0x40
+ 602 00b6 18       		.uleb128 0x18
+ 603 00b7 9742     		.uleb128 0x2117
+ 604 00b9 19       		.uleb128 0x19
+ 605 00ba 01       		.uleb128 0x1
+ 606 00bb 13       		.uleb128 0x13
+ 607 00bc 00       		.byte	0
+ 608 00bd 00       		.byte	0
+ 609 00be 0D       		.uleb128 0xd
+ 610 00bf 898201   		.uleb128 0x4109
+ 611 00c2 00       		.byte	0
+ 612 00c3 11       		.uleb128 0x11
+ 613 00c4 01       		.uleb128 0x1
+ 614 00c5 31       		.uleb128 0x31
+ 615 00c6 13       		.uleb128 0x13
+ 616 00c7 00       		.byte	0
+ 617 00c8 00       		.byte	0
+ 618 00c9 0E       		.uleb128 0xe
+ 619 00ca 34       		.uleb128 0x34
+ 620 00cb 00       		.byte	0
+ 621 00cc 03       		.uleb128 0x3
+ 622 00cd 0E       		.uleb128 0xe
+ 623 00ce 3A       		.uleb128 0x3a
+ 624 00cf 0B       		.uleb128 0xb
+ 625 00d0 3B       		.uleb128 0x3b
+ 626 00d1 05       		.uleb128 0x5
+ 627 00d2 49       		.uleb128 0x49
+ 628 00d3 13       		.uleb128 0x13
+ 629 00d4 3F       		.uleb128 0x3f
+ 630 00d5 19       		.uleb128 0x19
+ 631 00d6 3C       		.uleb128 0x3c
+ 632 00d7 19       		.uleb128 0x19
+ 633 00d8 00       		.byte	0
+ 634 00d9 00       		.byte	0
+ 635 00da 0F       		.uleb128 0xf
+ 636 00db 35       		.uleb128 0x35
+ 637 00dc 00       		.byte	0
+ 638 00dd 49       		.uleb128 0x49
+ 639 00de 13       		.uleb128 0x13
+ 640 00df 00       		.byte	0
+ 641 00e0 00       		.byte	0
+ 642 00e1 10       		.uleb128 0x10
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 13
+
+
+ 643 00e2 01       		.uleb128 0x1
+ 644 00e3 01       		.byte	0x1
+ 645 00e4 49       		.uleb128 0x49
+ 646 00e5 13       		.uleb128 0x13
+ 647 00e6 01       		.uleb128 0x1
+ 648 00e7 13       		.uleb128 0x13
+ 649 00e8 00       		.byte	0
+ 650 00e9 00       		.byte	0
+ 651 00ea 11       		.uleb128 0x11
+ 652 00eb 21       		.uleb128 0x21
+ 653 00ec 00       		.byte	0
+ 654 00ed 49       		.uleb128 0x49
+ 655 00ee 13       		.uleb128 0x13
+ 656 00ef 2F       		.uleb128 0x2f
+ 657 00f0 0B       		.uleb128 0xb
+ 658 00f1 00       		.byte	0
+ 659 00f2 00       		.byte	0
+ 660 00f3 12       		.uleb128 0x12
+ 661 00f4 26       		.uleb128 0x26
+ 662 00f5 00       		.byte	0
+ 663 00f6 49       		.uleb128 0x49
+ 664 00f7 13       		.uleb128 0x13
+ 665 00f8 00       		.byte	0
+ 666 00f9 00       		.byte	0
+ 667 00fa 13       		.uleb128 0x13
+ 668 00fb 34       		.uleb128 0x34
+ 669 00fc 00       		.byte	0
+ 670 00fd 03       		.uleb128 0x3
+ 671 00fe 0E       		.uleb128 0xe
+ 672 00ff 3A       		.uleb128 0x3a
+ 673 0100 0B       		.uleb128 0xb
+ 674 0101 3B       		.uleb128 0x3b
+ 675 0102 0B       		.uleb128 0xb
+ 676 0103 49       		.uleb128 0x49
+ 677 0104 13       		.uleb128 0x13
+ 678 0105 3F       		.uleb128 0x3f
+ 679 0106 19       		.uleb128 0x19
+ 680 0107 02       		.uleb128 0x2
+ 681 0108 18       		.uleb128 0x18
+ 682 0109 00       		.byte	0
+ 683 010a 00       		.byte	0
+ 684 010b 14       		.uleb128 0x14
+ 685 010c 2E       		.uleb128 0x2e
+ 686 010d 00       		.byte	0
+ 687 010e 3F       		.uleb128 0x3f
+ 688 010f 19       		.uleb128 0x19
+ 689 0110 3C       		.uleb128 0x3c
+ 690 0111 19       		.uleb128 0x19
+ 691 0112 6E       		.uleb128 0x6e
+ 692 0113 0E       		.uleb128 0xe
+ 693 0114 03       		.uleb128 0x3
+ 694 0115 0E       		.uleb128 0xe
+ 695 0116 3A       		.uleb128 0x3a
+ 696 0117 0B       		.uleb128 0xb
+ 697 0118 3B       		.uleb128 0x3b
+ 698 0119 0B       		.uleb128 0xb
+ 699 011a 00       		.byte	0
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 14
+
+
+ 700 011b 00       		.byte	0
+ 701 011c 00       		.byte	0
+ 702              		.section	.debug_loc,"",%progbits
+ 703              	.Ldebug_loc0:
+ 704              	.LLST0:
+ 705 0000 00000000 		.4byte	.LVL0
+ 706 0004 06000000 		.4byte	.LVL2
+ 707 0008 0100     		.2byte	0x1
+ 708 000a 50       		.byte	0x50
+ 709 000b 06000000 		.4byte	.LVL2
+ 710 000f 1C000000 		.4byte	.LFE63
+ 711 0013 0400     		.2byte	0x4
+ 712 0015 F3       		.byte	0xf3
+ 713 0016 01       		.uleb128 0x1
+ 714 0017 50       		.byte	0x50
+ 715 0018 9F       		.byte	0x9f
+ 716 0019 00000000 		.4byte	0
+ 717 001d 00000000 		.4byte	0
+ 718              	.LLST1:
+ 719 0021 02000000 		.4byte	.LVL1
+ 720 0025 06000000 		.4byte	.LVL2
+ 721 0029 0800     		.2byte	0x8
+ 722 002b 70       		.byte	0x70
+ 723 002c 00       		.sleb128 0
+ 724 002d 03       		.byte	0x3
+ 725 002e 00000000 		.4byte	.LANCHOR0
+ 726 0032 22       		.byte	0x22
+ 727 0033 06000000 		.4byte	.LVL2
+ 728 0037 09000000 		.4byte	.LVL3-1
+ 729 003b 0100     		.2byte	0x1
+ 730 003d 50       		.byte	0x50
+ 731 003e 09000000 		.4byte	.LVL3-1
+ 732 0042 1C000000 		.4byte	.LFE63
+ 733 0046 0900     		.2byte	0x9
+ 734 0048 F3       		.byte	0xf3
+ 735 0049 01       		.uleb128 0x1
+ 736 004a 50       		.byte	0x50
+ 737 004b 03       		.byte	0x3
+ 738 004c 00000000 		.4byte	.LANCHOR0
+ 739 0050 22       		.byte	0x22
+ 740 0051 00000000 		.4byte	0
+ 741 0055 00000000 		.4byte	0
+ 742              		.section	.debug_aranges,"",%progbits
+ 743 0000 24000000 		.4byte	0x24
+ 744 0004 0200     		.2byte	0x2
+ 745 0006 00000000 		.4byte	.Ldebug_info0
+ 746 000a 04       		.byte	0x4
+ 747 000b 00       		.byte	0
+ 748 000c 0000     		.2byte	0
+ 749 000e 0000     		.2byte	0
+ 750 0010 00000000 		.4byte	.LFB63
+ 751 0014 1C000000 		.4byte	.LFE63-.LFB63
+ 752 0018 00000000 		.4byte	.LFB64
+ 753 001c 30000000 		.4byte	.LFE64-.LFB64
+ 754 0020 00000000 		.4byte	0
+ 755 0024 00000000 		.4byte	0
+ 756              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 15
+
+
+ 757              	.Ldebug_ranges0:
+ 758 0000 00000000 		.4byte	.LFB63
+ 759 0004 1C000000 		.4byte	.LFE63
+ 760 0008 00000000 		.4byte	.LFB64
+ 761 000c 30000000 		.4byte	.LFE64
+ 762 0010 00000000 		.4byte	0
+ 763 0014 00000000 		.4byte	0
+ 764              		.section	.debug_line,"",%progbits
+ 765              	.Ldebug_line0:
+ 766 0000 A4010000 		.section	.debug_str,"MS",%progbits,1
+ 766      02007601 
+ 766      00000201 
+ 766      FB0E0D00 
+ 766      01010101 
+ 767              	.LASF30:
+ 768 0000 76616C75 		.ascii	"value\000"
+ 768      6500
+ 769              	.LASF9:
+ 770 0006 5F5F696E 		.ascii	"__int32_t\000"
+ 770      7433325F 
+ 770      7400
+ 771              	.LASF28:
+ 772 0010 73657450 		.ascii	"setPwm\000"
+ 772      776D00
+ 773              	.LASF12:
+ 774 0017 666C6F61 		.ascii	"float\000"
+ 774      7400
+ 775              	.LASF11:
+ 776 001d 75696E74 		.ascii	"uint8\000"
+ 776      3800
+ 777              	.LASF1:
+ 778 0023 756E7369 		.ascii	"unsigned char\000"
+ 778      676E6564 
+ 778      20636861 
+ 778      7200
+ 779              	.LASF25:
+ 780 0031 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 780      43313120 
+ 780      352E342E 
+ 780      31203230 
+ 780      31363036 
+ 781 0064 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 781      20726576 
+ 781      6973696F 
+ 781      6E203233 
+ 781      37373135 
+ 782 0097 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 782      66756E63 
+ 782      74696F6E 
+ 782      2D736563 
+ 782      74696F6E 
+ 783              	.LASF5:
+ 784 00bf 6C6F6E67 		.ascii	"long unsigned int\000"
+ 784      20756E73 
+ 784      69676E65 
+ 784      6420696E 
+ 784      7400
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 16
+
+
+ 785              	.LASF3:
+ 786 00d1 73686F72 		.ascii	"short unsigned int\000"
+ 786      7420756E 
+ 786      7369676E 
+ 786      65642069 
+ 786      6E7400
+ 787              	.LASF21:
+ 788 00e4 6769726F 		.ascii	"giro1_Write\000"
+ 788      315F5772 
+ 788      69746500 
+ 789              	.LASF17:
+ 790 00f0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 790      52784275 
+ 790      66666572 
+ 790      00
+ 791              	.LASF18:
+ 792 00fd 73696E65 		.ascii	"sinewave\000"
+ 792      77617665 
+ 792      00
+ 793              	.LASF13:
+ 794 0106 646F7562 		.ascii	"double\000"
+ 794      6C6500
+ 795              	.LASF20:
+ 796 010d 50574D5F 		.ascii	"PWM_WriteCompare\000"
+ 796      57726974 
+ 796      65436F6D 
+ 796      70617265 
+ 796      00
+ 797              	.LASF31:
+ 798 011e 6D61696E 		.ascii	"main\000"
+ 798      00
+ 799              	.LASF22:
+ 800 0123 6769726F 		.ascii	"giro2_Write\000"
+ 800      325F5772 
+ 800      69746500 
+ 801              	.LASF27:
+ 802 012f 433A5C55 		.ascii	"C:\\Users\\santa\\OneDrive\\Documentos\\PSoC Creato"
+ 802      73657273 
+ 802      5C73616E 
+ 802      74615C4F 
+ 802      6E654472 
+ 803 015d 725C4C61 		.ascii	"r\\Lab2_control\\Lab2_control.cydsn\000"
+ 803      62325F63 
+ 803      6F6E7472 
+ 803      6F6C5C4C 
+ 803      6162325F 
+ 804              	.LASF8:
+ 805 017f 756E7369 		.ascii	"unsigned int\000"
+ 805      676E6564 
+ 805      20696E74 
+ 805      00
+ 806              	.LASF7:
+ 807 018c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 807      206C6F6E 
+ 807      6720756E 
+ 807      7369676E 
+ 807      65642069 
+ARM GAS  C:\Users\santa\AppData\Local\Temp\ccVxjR0U.s 			page 17
+
+
+ 808              	.LASF19:
+ 809 01a3 696E6465 		.ascii	"index_t\000"
+ 809      785F7400 
+ 810              	.LASF10:
+ 811 01ab 696E7433 		.ascii	"int32_t\000"
+ 811      325F7400 
+ 812              	.LASF16:
+ 813 01b3 73697A65 		.ascii	"sizetype\000"
+ 813      74797065 
+ 813      00
+ 814              	.LASF6:
+ 815 01bc 6C6F6E67 		.ascii	"long long int\000"
+ 815      206C6F6E 
+ 815      6720696E 
+ 815      7400
+ 816              	.LASF26:
+ 817 01ca 6D61696E 		.ascii	"main.c\000"
+ 817      2E6300
+ 818              	.LASF14:
+ 819 01d1 63686172 		.ascii	"char\000"
+ 819      00
+ 820              	.LASF29:
+ 821 01d6 696E6465 		.ascii	"index\000"
+ 821      7800
+ 822              	.LASF2:
+ 823 01dc 73686F72 		.ascii	"short int\000"
+ 823      7420696E 
+ 823      7400
+ 824              	.LASF23:
+ 825 01e6 50574D5F 		.ascii	"PWM_Start\000"
+ 825      53746172 
+ 825      7400
+ 826              	.LASF4:
+ 827 01f0 6C6F6E67 		.ascii	"long int\000"
+ 827      20696E74 
+ 827      00
+ 828              	.LASF15:
+ 829 01f9 6C6F6E67 		.ascii	"long double\000"
+ 829      20646F75 
+ 829      626C6500 
+ 830              	.LASF0:
+ 831 0205 7369676E 		.ascii	"signed char\000"
+ 831      65642063 
+ 831      68617200 
+ 832              	.LASF24:
+ 833 0211 43794465 		.ascii	"CyDelay\000"
+ 833      6C617900 
+ 834              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
