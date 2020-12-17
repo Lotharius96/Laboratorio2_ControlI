@@ -17,6 +17,12 @@ const uint8 sinewave[]={
  39,   36,   33,   30,   29,   28,   28,   29,   30,   33,   36,   39,   44,   49,   54,   60,
  66,   72,   78
 };
+const unsigned int delayFreq[] =
+{
+163, 140, 120, 100, 81,
+60, 40, 32, 28, 23,
+16, 14, 12, 10, 8
+};
 uint8 index_t=0;
 void setPwm(int index){
      uint8 value=sinewave[index];
