@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Lab2_control\Lab2_control\Lab2_control.cydwr\Pins">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Lab2_control\Lab2_control\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Lab2_control</v>
 <v>Lab2_control\Lab2_control</v>
@@ -60,12 +60,12 @@
 <v>Lab2_control\Lab2_control\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
 <v>Lab2_control\Lab2_control\Generated_Source\PSoC5\giro1</v>
 <v>Lab2_control\Lab2_control\Generated_Source\PSoC5\giro2</v>
+<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\isr_Timer</v>
+<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\isr_Vueltas</v>
 <v>Lab2_control\Lab2_control\Generated_Source\PSoC5\PWM</v>
-<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\spwm</v>
-<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\cycodeshareexport.ld</v>
-<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\cycodeshareimport.ld</v>
-<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\cycodeshareimport.scat</v>
-<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\cydevice.h</v>
+<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\sensorA</v>
+<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\sensorB</v>
+<v>Lab2_control\Lab2_control\Generated_Source\PSoC5\signal_Input</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -104,10 +104,23 @@
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\giro1.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\giro2.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_Timer.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_Vueltas.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\sensorA.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\sensorB.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\signal_Input.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\spwm.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Lab2_control.elf</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Lab2_control.hex</v>
 <v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Lab2_control.map</v>
@@ -118,34 +131,6 @@
 <VisibleNodeIds>
 <v>Lab2_control</v>
 <v>Lab2_control\Lab2_control</v>
-<v>Lab2_control\Lab2_control\CortexM3</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\giro1.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\giro2.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Listing Files\spwm.lst</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Lab2_control.elf</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Lab2_control.hex</v>
-<v>Lab2_control\Lab2_control\CortexM3\ARM_GCC_541\Debug\Lab2_control.map</v>
-<v>Lab2_control\Lab2_control\Lab2_control.gpdsc</v>
-<v>Lab2_control\Lab2_control\Lab2_control.rpt</v>
-<v>Lab2_control\Lab2_control\Lab2_control_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -153,7 +138,7 @@
 <v>Datasheet</v>
 </TreeKeysV2>
 <TreeStatesV2>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Lab2_control\Lab2_control">
 <ExpandedNodeIds>
 <v>Lab2_control</v>
 <v>Lab2_control\Lab2_control</v>
@@ -161,10 +146,16 @@
 <v>Lab2_control\Lab2_control\CY8C58LP Family Datasheet</v>
 <v>Lab2_control\Lab2_control\System Reference Guides</v>
 <v>Lab2_control\Lab2_control\System Reference Guides\cy_boot_v6_0</v>
-<v>Lab2_control\Lab2_control\cy_clock_v2_20.pdf</v>
+<v>Lab2_control\Lab2_control\cy_clock_v2_20</v>
+<v>Lab2_control\Lab2_control\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Lab2_control\Lab2_control\cy_isr_v1_70</v>
+<v>Lab2_control\Lab2_control\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
 <v>Lab2_control\Lab2_control\cy_pins_v2_20</v>
 <v>Lab2_control\Lab2_control\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>Lab2_control\Lab2_control\PWM_v3_30.pdf</v>
+<v>Lab2_control\Lab2_control\Timer_v2_80.pdf</v>
+<v>Lab2_control\Lab2_control\UART_v2_50.pdf</v>
+<v>Lab2_control\Lab2_control\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Lab2_control</v>
@@ -173,10 +164,16 @@
 <v>Lab2_control\Lab2_control\CY8C58LP Family Datasheet</v>
 <v>Lab2_control\Lab2_control\System Reference Guides</v>
 <v>Lab2_control\Lab2_control\System Reference Guides\cy_boot_v6_0</v>
-<v>Lab2_control\Lab2_control\cy_clock_v2_20.pdf</v>
+<v>Lab2_control\Lab2_control\cy_clock_v2_20</v>
+<v>Lab2_control\Lab2_control\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Lab2_control\Lab2_control\cy_isr_v1_70</v>
+<v>Lab2_control\Lab2_control\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
 <v>Lab2_control\Lab2_control\cy_pins_v2_20</v>
 <v>Lab2_control\Lab2_control\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>Lab2_control\Lab2_control\PWM_v3_30.pdf</v>
+<v>Lab2_control\Lab2_control\Timer_v2_80.pdf</v>
+<v>Lab2_control\Lab2_control\UART_v2_50.pdf</v>
+<v>Lab2_control\Lab2_control\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -186,9 +183,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\Lab2_control.cydsn\main.c" />
 <name v=".\Lab2_control.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Lab2_control.cydsn\Lab2_control.cydwr" />
-<name v=".\Lab2_control.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -196,7 +193,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="781, 399" SelectedTabbedMdiWindow="f61c8986-7421-42f2-a7bf-d73c3ee66fdf"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="33f9b412-66a6-4ed8-9bb7-ef15283d0dea" /><DocumentWindow Key="C:\Users\santa\OneDrive\Documentos\PSoC Creator\Lab2_control\Lab2_control.cydsn\TopDesign\TopDesign.cysch" Guid="7565d74b-66be-4be4-bb36-ca84dfbc0f09" /><DocumentWindow Key="C:\Users\santa\OneDrive\Documentos\PSoC Creator\Lab2_control\Lab2_control.cydsn\Lab2_control.cydwr" Guid="ff39e928-2f92-4fee-b8e7-0ca9cfd5742d" /><DocumentWindow Key="C:\Users\santa\OneDrive\Documentos\PSoC Creator\Lab2_control\Lab2_control.cydsn\main.c" Guid="f61c8986-7421-42f2-a7bf-d73c3ee66fdf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="758, 399" SelectedTabbedMdiWindow="25d06fd8-dc1e-48e4-bfb8-f95b41cacf2b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="33f9b412-66a6-4ed8-9bb7-ef15283d0dea" /><DocumentWindow Key="C:\Users\santa\Downloads\Laboratorio2_ControlI\Lab2_control\Lab2_control.cydsn\main.c" Guid="25d06fd8-dc1e-48e4-bfb8-f95b41cacf2b" /><DocumentWindow Key="C:\Users\santa\Downloads\Laboratorio2_ControlI\Lab2_control\Lab2_control.cydsn\TopDesign\TopDesign.cysch" Guid="b10ea0da-f00f-427d-94a8-46722585ebfa" /><DocumentWindow Key="C:\Users\santa\Downloads\Laboratorio2_ControlI\Lab2_control\Lab2_control.cydsn\Lab2_control.cydwr" Guid="aafe582e-a270-4b4e-b829-c28c56ea4361" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
