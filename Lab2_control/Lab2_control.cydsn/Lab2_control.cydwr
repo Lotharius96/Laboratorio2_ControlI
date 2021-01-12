@@ -251,9 +251,14 @@
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="sensorA" />
       <Data key="64e0dd01-fafa-4813-82dc-2a9ed8860ff0" value="giro2" />
+      <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
+      <Data key="2051087d-ad64-4a83-b388-15307affacb3" value="sensorB" />
       <Data key="32853538-fa58-4665-ba32-35539be6f258" value="spwm" />
+      <Data key="bb83c271-5fc4-4b69-9e03-c9d9dbae66f7" value="signal_Input" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="giro1" />
+      <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
     </Group>
   </Group>
   <Group key="EEPROM">
@@ -3345,6 +3350,11 @@
         <Data key="Port Format" value="1,7" />
       </Group>
     </Group>
+    <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">
+      <Group key="0">
+        <Data key="Port Format" value="3,3" />
+      </Group>
+    </Group>
     <Group key="32853538-fa58-4665-ba32-35539be6f258">
       <Group key="0">
         <Data key="Port Format" value="2,0" />
@@ -3353,6 +3363,11 @@
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
       <Group key="0">
         <Data key="Port Format" value="1,6" />
+      </Group>
+    </Group>
+    <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
+      <Group key="0">
+        <Data key="Port Format" value="3,4" />
       </Group>
     </Group>
   </Group>
